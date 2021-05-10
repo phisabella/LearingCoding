@@ -1,0 +1,11 @@
+import pickle
+
+if __name__ == '__main__':
+
+    class dairy():
+        date = 123
+        text = "asdad"
+        todo = ['ao','213','awd']
+
+    x = dairy()
+    print(pickle.dump(x))

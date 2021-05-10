@@ -1,0 +1,18 @@
+import requests
+if __name__ == '__main__':
+    for i in range(1,1000):
+        url = 'http://fdf72c99-6d80-4fae-a111-dfd50f7f308d.node3.buuoj.cn/shop?page=' + str(i)
+        result = requests.get(url).content.decode('utf-8')
+        if 'lv6.png' in result:
+            print(i)
+
+
+
+
+
+
+
+
+
+
+
